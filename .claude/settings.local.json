@@ -21,7 +21,12 @@
       "Bash(rm -rf src dist node_modules public \"%APPDATA%\")",
       "Bash(rm -f index.html vite.config.ts tsconfig.json tsconfig.app.json tsconfig.node.json package.json package-lock.json eslint.config.js \"计划.md\")",
       "Bash(rm -rf frontend/src/components/AgentModule.tsx frontend/src/components/CodeModule.tsx frontend/src/components/CourseModule.tsx frontend/src/components/SkillTree.tsx frontend/src/data frontend/src/_backup)",
-      "Bash(rm -rf frontend/%APPDATA%)"
+      "Bash(rm -rf frontend/%APPDATA%)",
+      "Bash(rm -f backend/teaching_platform.db)",
+      "Bash(python init_db.py)",
+      "Bash(kill -9 7751)",
+      "Bash(taskkill //F //IM python.exe)",
+      "Bash(taskkill //F //IM uvicorn.exe)"
     ]
   }
 }
