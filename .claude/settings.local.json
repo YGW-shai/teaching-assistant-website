@@ -26,7 +26,12 @@
       "Bash(python init_db.py)",
       "Bash(kill -9 7751)",
       "Bash(taskkill //F //IM python.exe)",
-      "Bash(taskkill //F //IM uvicorn.exe)"
+      "Bash(taskkill //F //IM uvicorn.exe)",
+      "Bash(uvicorn app.main:app --reload --port 8000)",
+      "Bash(npm run *)",
+      "Bash(python -m uvicorn app.main:app --reload --port 8000)",
+      "Bash(curl -s -X POST http://127.0.0.1:8000/api/v1/auth/login -H \"Content-Type: application/x-www-form-urlencoded\" -d \"username=2024001&password=123456\")",
+      "Bash(rm -f /e/Claude实验/lab/.claude/教辅网站开发/backend/teaching_platform.db)"
     ]
   }
 }

@@ -11,6 +11,7 @@ import {
   FileTextOutlined,
   ProfileOutlined,
   DashboardOutlined,
+  ExperimentOutlined,
 } from '@ant-design/icons'
 import { Outlet, useNavigate, useLocation } from 'react-router-dom'
 import { useAuthStore } from '../../stores/authStore'
@@ -38,6 +39,7 @@ export default function MainLayout() {
     teacher: [
       { key: '/teacher/home', icon: <HomeOutlined />, label: '教师首页' },
       { key: '/course-editor', icon: <EditOutlined />, label: '课程编辑' },
+      { key: '/experiment-editor', icon: <ExperimentOutlined />, label: '实验编辑' },
       { key: '/homework', icon: <FileTextOutlined />, label: '作业发布' },
       { key: '/exam', icon: <FileTextOutlined />, label: '考试发布' },
       { key: '/agent', icon: <RobotOutlined />, label: '智能助手' },

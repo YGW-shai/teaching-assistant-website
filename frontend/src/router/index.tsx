@@ -16,6 +16,7 @@ import Practice from '../pages/Practice'
 // 教师端
 import TeacherHome from '../pages/TeacherHome'
 import CourseEditor from '../pages/CourseEditor'
+import ExperimentEditor from '../pages/ExperimentEditor'
 import Homework from '../pages/Homework'
 import Exam from '../pages/Exam'
 
@@ -88,6 +89,14 @@ export const router = createBrowserRouter([
         element: (
           <RoleGuard allowedRoles={['teacher', 'admin']}>
             <CourseEditor />
+          </RoleGuard>
+        ),
+      },
+      {
+        path: 'experiment-editor',
+        element: (
+          <RoleGuard allowedRoles={['teacher', 'admin']}>
+            <ExperimentEditor />
           </RoleGuard>
         ),
       },
