@@ -6,7 +6,22 @@
       "Bash(git commit *)",
       "Bash(git push *)",
       "Bash(git reset *)",
-      "Bash(git rm *)"
+      "Bash(git rm *)",
+      "Bash(cmd *)",
+      "Bash(xargs grep *)",
+      "Bash(rm -rf frontend/src frontend/dist frontend/.vite frontend/%APPDATA% frontend/node_modules)",
+      "Bash(cp -r src/* frontend/src/)",
+      "Bash(cp -r dist/* frontend/dist/)",
+      "Bash(cp package.json frontend/)",
+      "Bash(cp tsconfig*.json frontend/)",
+      "Bash(mkdir -p frontend/src)",
+      "Bash(npm install *)",
+      "WebFetch(domain:github.com)",
+      "Bash(gh api *)",
+      "Bash(rm -rf src dist node_modules public \"%APPDATA%\")",
+      "Bash(rm -f index.html vite.config.ts tsconfig.json tsconfig.app.json tsconfig.node.json package.json package-lock.json eslint.config.js \"计划.md\")",
+      "Bash(rm -rf frontend/src/components/AgentModule.tsx frontend/src/components/CodeModule.tsx frontend/src/components/CourseModule.tsx frontend/src/components/SkillTree.tsx frontend/src/data frontend/src/_backup)",
+      "Bash(rm -rf frontend/%APPDATA%)"
     ]
   }
 }

@@ -14,6 +14,7 @@ backend/*.sqlite3
 # Logs
 *.log
 frontend/%APPDATA%/
+backend/%APPDATA%/
 
 # Environment
 .env
