@@ -2,8 +2,7 @@ from pydantic import BaseModel, EmailStr
 
 
 class UserBase(BaseModel):
-    username: str
-    email: EmailStr
+    student_id: str
     full_name: str | None = None
 
 
@@ -12,8 +11,11 @@ class UserCreate(UserBase):
     role_name: str = "student"
 
 
-class UserOut(UserBase):
+class UserOut(BaseModel):
     id: int
+    student_id: str | None = None
+    username: str | None = None
+    full_name: str | None = None
     is_active: bool
     role_id: int
     role_name: str
@@ -23,5 +25,5 @@ class UserOut(UserBase):
 
 
 class UserLogin(BaseModel):
-    username: str
+    student_id: str
     password: str

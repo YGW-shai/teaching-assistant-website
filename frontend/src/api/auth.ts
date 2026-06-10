@@ -7,7 +7,7 @@ export interface LoginRequest {
 
 export interface RegisterRequest {
   student_id: string
-  name: string
+  full_name: string
   password: string
 }
 
@@ -16,14 +16,20 @@ export interface AuthResponse {
   token_type: string
   user: {
     id: number
-    username: string
+    student_id: string
+    full_name: string
     role_name: string
   }
 }
 
 export const authApi = {
   login: (data: LoginRequest) =>
-    request.post<AuthResponse>('/v1/auth/login', data),
+    request.post<AuthResponse>('/v1/auth/login', new URLSearchParams({
+      username: data.student_id,
+      password: data.password,
+    }), {
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+    }),
   register: (data: RegisterRequest) =>
     request.post<AuthResponse>('/v1/auth/register', data),
 }

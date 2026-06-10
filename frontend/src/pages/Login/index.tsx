@@ -93,7 +93,7 @@ function RegisterForm() {
     try {
       await authApi.register({
         student_id: values.student_id,
-        name: values.name,
+        full_name: values.name,
         password: values.password,
       })
       message.success('注册成功，请登录')

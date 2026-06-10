@@ -56,8 +56,8 @@ def require_role(role_name: str):
     return role_checker
 
 
-def authenticate_user(db: Session, username: str, password: str) -> User | None:
-    user = db.query(User).filter(User.username == username).first()
+def authenticate_user(db: Session, student_id: str, password: str) -> User | None:
+    user = db.query(User).filter(User.student_id == student_id).first()
     if not user:
         return None
     if not verify_password(password, user.hashed_password):

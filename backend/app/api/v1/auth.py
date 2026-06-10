@@ -20,17 +20,11 @@ def register(
     user_in: UserCreate,
     db: Annotated[Session, Depends(get_db)]
 ):
-    # Check if username exists
-    if db.query(User).filter(User.username == user_in.username).first():
+    # Check if student_id exists
+    if db.query(User).filter(User.student_id == user_in.student_id).first():
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Username already registered"
-        )
-    # Check if email exists
-    if db.query(User).filter(User.email == user_in.email).first():
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Email already registered"
+            detail="Student ID already registered"
         )
 
     role = db.query(Role).filter(Role.name == user_in.role_name).first()
@@ -41,8 +35,8 @@ def register(
         )
 
     user = User(
-        username=user_in.username,
-        email=user_in.email,
+        student_id=user_in.student_id,
+        username=user_in.student_id,
         hashed_password=get_password_hash(user_in.password),
         full_name=user_in.full_name,
         role_id=role.id
@@ -62,7 +56,7 @@ def login(
     if not user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect username or password",
+            detail="Incorrect student ID or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
     access_token = create_access_token(subject=user.id)
