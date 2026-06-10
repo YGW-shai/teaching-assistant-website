@@ -4,10 +4,12 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
 import { authApi } from '../../api/auth'
 import { useAuthStore } from '../../stores/authStore'
+import { useUserStore } from '../../stores/userStore'
 
 export default function Login() {
   const navigate = useNavigate()
   const { login } = useAuthStore()
+  const { setUser } = useUserStore()
   const [loading, setLoading] = useState(false)
 
   const handleLogin = async (values: { student_id: string; password: string }) => {
@@ -15,6 +17,7 @@ export default function Login() {
     try {
       const res = await authApi.login(values)
       login(res.data.access_token, res.data.user)
+      setUser(res.data.user)
       message.success('登录成功')
       const role = res.data.user.role_name
       if (role === 'admin') navigate('/admin/home')
